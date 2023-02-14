@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <base href="/" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield("title","Trang quản trị hệ thống")</title>
     <!-- Tell the browser to be responsive to screen width -->

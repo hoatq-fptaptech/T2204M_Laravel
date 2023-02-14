@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\WebController::class,'home']);
 Route::get("/about-us",[\App\Http\Controllers\WebController::class,"aboutUs"]);
+
+Route::get("admin/product",[\App\Http\Controllers\ProductController::class,"list"]);
+Route::get("admin/product/create",[\App\Http\Controllers\ProductController::class,"create"]);
+Route::post("admin/product/create",[\App\Http\Controllers\ProductController::class,"store"]);
