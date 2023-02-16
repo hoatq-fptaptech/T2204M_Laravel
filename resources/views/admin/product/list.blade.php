@@ -29,6 +29,7 @@
                     <th>Qty</th>
                     <th>Unit</th>
                     <th style="width: 40px">Status</th>
+                    <th></th>
                 </tr>
                 </thead>
                <tbody>
@@ -46,6 +47,15 @@
                                 @else
                                     <span class="badge bg-warning">Inactive</span>
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{route("product_edit",["product"=>$item->id])}}" class="btn btn-outline-info">Edit</a>
+                                <form method="post" action="{{route("product_delete",["product"=>$item->id])}}">
+                                    @method("DELETE")
+                                    @csrf
+                                    <button type="submit" onclick="return confirm('Bạn chắc chăn muốn xóa sản phẩm!');"
+                                            class="btn btn-outline-warning">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

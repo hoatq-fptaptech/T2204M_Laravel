@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\WebController::class,'home']);
 Route::get("/about-us",[\App\Http\Controllers\WebController::class,"aboutUs"]);
 
-Route::get("admin/product",[\App\Http\Controllers\ProductController::class,"list"]);
-Route::get("admin/product/create",[\App\Http\Controllers\ProductController::class,"create"]);
-Route::post("admin/product/create",[\App\Http\Controllers\ProductController::class,"store"]);
+Route::get("admin/product",[ProductController::class,"list"]);
+Route::get("admin/product/create",[ProductController::class,"create"]);
+Route::post("admin/product/create",[ProductController::class,"store"]);
+Route::get("admin/product/edit/{product}",[ProductController::class,"edit"])->name("product_edit");
+Route::put("admin/product/edit/{product}",[ProductController::class,"update"]);
+Route::delete("admin/product/delete/{product}",[ProductController::class,"delete"])->name("product_delete");
