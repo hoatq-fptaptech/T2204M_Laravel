@@ -13,7 +13,11 @@ class ProductController extends Controller
 //        $data = Product::limit(20)->orderBy("id","desc")->get();// collection
 //        $data = Product::withTrashed()->orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
 //        $data = Product::onlyTrashed()->orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
-        $data = Product::orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
+//        $data = Product::leftJoin("categories","categories.id","=","products.category_id")
+//            ->orderBy("id","desc")
+//            ->select(["products.*","categories.name as category_name"])
+//            ->paginate(20); // Paginator : ds co phan trang
+        $data = Product::orderBy("id","desc")->paginate(20);
         return view("admin.product.list",compact("data"));
 //        return view("admin.product.list",[
 //            "data"=>$data

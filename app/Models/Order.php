@@ -16,4 +16,8 @@ class Order extends Model
         "shipping_address",
         "telephone",
     ];
+
+    public function Products(){
+        return $this->belongsToMany(Product::class,"order_products")->withPivot();
+    }
 }

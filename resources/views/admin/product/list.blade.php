@@ -27,7 +27,7 @@
                     <th>Thumbnail</th>
                     <th>Price</th>
                     <th>Qty</th>
-                    <th>Unit</th>
+                    <th>Category</th>
                     <th style="width: 40px">Status</th>
                     <th></th>
                 </tr>
@@ -40,7 +40,9 @@
                             <td><img src="{{ $item->thumbnail }}" class="img-thumbnail" width="80"/> </td>
                             <td>{{ $item->price }}</td>
                             <td>{{ $item->qty }}</td>
-                            <td>{{ $item->unit }}</td>
+                            <td>{{ $item->Category->name }}
+                                <span class="badge bg-info">{{$item->Category->Products->count()}}</span>
+                            </td>
                             <td>
                                 @if($item->status)
                                     <span class="badge bg-success">Active</span>
