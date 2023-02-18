@@ -11,6 +11,8 @@ class ProductController extends Controller
     public function list(){
 //        $data = Product::all();// select * from products
 //        $data = Product::limit(20)->orderBy("id","desc")->get();// collection
+//        $data = Product::withTrashed()->orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
+//        $data = Product::onlyTrashed()->orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
         $data = Product::orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
         return view("admin.product.list",compact("data"));
 //        return view("admin.product.list",[
