@@ -12,8 +12,11 @@ class ProductController extends Controller
         $search = $request->get("search");
         $category_id = $request->get("category_id");
 
-        $data = Product::CategoryFiler($category_id)->Search($search)
-            ->orderBy("id","desc")->paginate(20);
+        $orderColumn = $request->has("orderColumn")?$request->get("orderColumn"):"id";
+        $sortBy = $request->has("sortBy")?$request->get("sortBy"):"desc";
+
+        $data = Product::with("Category")->CategoryFiler($category_id)->Search($search)
+            ->orderBy($orderColumn,$sortBy)->paginate(20);
 
         $categories = Category::all();
         return view("admin.product.list",compact("data",'categories'));
