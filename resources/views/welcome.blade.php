@@ -603,7 +603,7 @@
             data: {
                 labels: {!! $category_names !!},
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Products count: ',
                     data: {!! $category_products_counts !!},
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
