@@ -8,7 +8,17 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function list(){
+    public function list(Request $request){
+        $search = $request->get("search");
+        $category_id = $request->get("category_id");
+
+        $data = Product::CategoryFiler($category_id)->Search($search)
+            ->orderBy("id","desc")->paginate(20);
+
+        $categories = Category::all();
+        return view("admin.product.list",compact("data",'categories'));
+    }
+    public function list2(){
 //        $data = Product::all();// select * from products
 //        $data = Product::limit(20)->orderBy("id","desc")->get();// collection
 //        $data = Product::withTrashed()->orderBy("id","desc")->paginate(20); // Paginator : ds co phan trang
