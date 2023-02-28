@@ -61,7 +61,7 @@
                                     ${{$item->price * $item->buy_qty}}
                                 </td>
                                 <td class="shoping__cart__item__close">
-                                    <span class="icon_close"></span>
+                                    <a href="{{url("remove-item",["product"=>$item->id])}}"> <span class="icon_close"></span></a>
                                 </td>
                             </tr>
                             @empty

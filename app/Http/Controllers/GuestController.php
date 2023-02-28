@@ -54,4 +54,15 @@ class GuestController extends Controller
         }
         return view("guest.cart",compact('cart','grand_total','can_checkout'));
     }
+
+    public function removeItem(Product $product){
+        $cart = session()->has("cart") && is_array(session("cart"))?session("cart"):[];
+        foreach ($cart as $key=>$item){
+            if($item->id == $product->id){
+                unset($cart[$key]);
+            }
+        }
+        session(["cart"=>$cart]);
+        return redirect()->to("cart");
+    }
 }
