@@ -134,9 +134,9 @@ class GuestController extends Controller
             ]);
             $item->decrement("qty",$item->buy_qty);
         }
-//        session()->forget("cart");
+        session()->forget("cart");
 
-        Mail::to($order->email)->send(new MailOrder());
+        Mail::to($order->email)->send(new MailOrder($order));
         // to  checkout-success
         return redirect()->to("cart");
     }

@@ -20,7 +20,7 @@ class UpdateTableOrders extends Migration
             $table->string("state");
             $table->integer("postcode");
             $table->string("email");
-            $table->string("note");
+            $table->string("note")->nullable();
         });
     }
 
