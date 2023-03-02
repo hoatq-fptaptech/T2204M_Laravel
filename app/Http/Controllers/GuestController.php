@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailOrder;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class GuestController extends Controller
 {
@@ -132,7 +134,9 @@ class GuestController extends Controller
             ]);
             $item->decrement("qty",$item->buy_qty);
         }
-        session()->forget("cart");
+//        session()->forget("cart");
+
+        Mail::to($order->email)->send(new MailOrder());
         // to  checkout-success
         return redirect()->to("cart");
     }
