@@ -30,7 +30,8 @@ class MailOrder extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.neworder',[
+        return $this->subject("Thông báo đơn hàng mới")
+            ->view('mails.neworder',[
             'order'=>$this->order
         ]);
     }
