@@ -21,6 +21,7 @@ class UpdateTableOrders extends Migration
             $table->integer("postcode");
             $table->string("email");
             $table->string("note")->nullable();
+            $table->boolean("payed")->default(false);
         });
     }
 
@@ -40,6 +41,7 @@ class UpdateTableOrders extends Migration
                 "postcode",
                 "email",
                 "note",
+                "payed"
             ]);
         });
     }

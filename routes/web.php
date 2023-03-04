@@ -37,3 +37,6 @@ Route::get("/remove-item/{product}",[\App\Http\Controllers\GuestController::clas
 Route::get("/checkout",[\App\Http\Controllers\GuestController::class,"checkout"]);
 Route::post("/checkout",[\App\Http\Controllers\GuestController::class,"placeOrder"]);
 
+Route::get("/process-paypal/{order}",[\App\Http\Controllers\GuestController::class,"processPaypal"])->name("process_paypal");
+Route::get("/success-paypal/{order}",[\App\Http\Controllers\GuestController::class,"successPaypal"])->name("success_paypal");
+Route::get("/cancel-paypal/{order}",[\App\Http\Controllers\GuestController::class,"cancelPaypal"])->name("cancel_paypal");
