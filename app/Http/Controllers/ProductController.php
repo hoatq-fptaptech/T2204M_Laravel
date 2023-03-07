@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+        $this->middleware(["auth"]);
+    }
     public function list(Request $request){
         $search = $request->get("search");
         $category_id = $request->get("category_id");

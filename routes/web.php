@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get("/about-us",[\App\Http\Controllers\WebController::class,"aboutUs"]);
 
-Route::prefix(env("ADMIN_PATH"))->group(function (){
+Route::middleware(["auth","admin"])->prefix(env("ADMIN_PATH"))->group(function (){
     Route::get('/dashboard', [\App\Http\Controllers\WebController::class,'home']);
 
     Route::prefix("product")->group(function (){
