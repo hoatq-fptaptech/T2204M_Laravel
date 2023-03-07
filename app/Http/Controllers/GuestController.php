@@ -178,7 +178,7 @@ class GuestController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => number_format($order->grand_total,2)
+                        "value" => number_format($order->grand_total,2,".","")
                     ]
                 ]
             ]
